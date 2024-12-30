@@ -30,11 +30,10 @@ import { JwtModule, JwtService } from '@nestjs/jwt';
     MongooseModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: (configService: ConfigService) => {
-        const connectionString = configService.get(
-          'MONGODB_CONNECTION_STRING',
-        )!;
+        const connectionString =
+          configService.get('MONGODB_CONNECTION_STRING') || '';
         return {
-          uri: connectionString,
+          uri: `mongodb+srv://vercel-admin-user-66fcd2375c865e7679675008:x1S1AxW3vIkw4BC8@expense-tracker.qlar7.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`,
         };
       },
       inject: [ConfigService],
