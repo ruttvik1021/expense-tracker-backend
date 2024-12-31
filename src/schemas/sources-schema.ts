@@ -23,5 +23,5 @@ export class Sources {
 }
 
 export type SourcesDocument = Sources & Document;
-export const TransactionSchema = SchemaFactory.createForClass(Sources);
+export const SourcesSchema = SchemaFactory.createForClass(Sources);
 export const SOURCES_MODEL = Sources.name;
