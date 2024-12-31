@@ -12,6 +12,8 @@ import { ChartsModule } from './charts/charts.module';
 import { TransactionModule } from './transaction/transaction.module';
 import { TokenValidator } from './middlewares/token-validator-middleware';
 import { JwtModule, JwtService } from '@nestjs/jwt';
+import { SourcesModule } from './sources/sources.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -43,6 +45,8 @@ import { JwtModule, JwtService } from '@nestjs/jwt';
     EmailModule,
     ChartsModule,
     TransactionModule,
+    SourcesModule,
+    AuthModule,
   ],
   controllers: [AppController, EmailController],
   providers: [AppService, EmailService],

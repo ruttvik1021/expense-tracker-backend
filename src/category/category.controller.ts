@@ -16,17 +16,18 @@ import {
 import { CategoryService } from './category.service';
 import { ObjectIdValidationPipe } from 'src/pipes/objectIdValidationPipe';
 
-@Controller('category')
+@Controller('categories')
 export class CategoryController {
   constructor(private readonly categoryService: CategoryService) {}
+
+  @Post()
+  async getCategories(@Req() req: Request, @Body() body: GetCategoriesDTO) {
+    return this.categoryService.getCategories(req, body);
+  }
+
   @Post('create')
   async createCategory(@Req() req: Request, @Body() body: CreateCategoryDTO) {
     return this.categoryService.createCategory(req, body);
-  }
-
-  @Post('get')
-  async getCategories(@Req() req: Request, @Body() body: GetCategoriesDTO) {
-    return this.categoryService.getCategories(req, body);
   }
 
   @Get(':id')
@@ -54,7 +55,7 @@ export class CategoryController {
     return this.categoryService.updateCategory(req, id, body);
   }
 
-  @Get('previous-month')
+  @Get('previous-month-list')
   async getPreviousMonthCategories(@Req() req: Request) {
     return this.categoryService.getPreviousMonthCategories(req);
   }

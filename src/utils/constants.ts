@@ -8,6 +8,8 @@ export const authenticationConstants = {
     missingAuthHeaders: 'Unauthorized - Missing Authorization Header',
     invalidAuthHeaderFormat:
       'Unauthorized - Invalid Authorization Header Format',
+    invalidCredentials: 'Invalid Credentials',
+    userExists: 'User already exists',
   },
 };
 
@@ -49,5 +51,27 @@ export const transactionMessages = {
     transactionsCreated: 'Transactions created successfully',
     transactionDeleted: 'Transaction deleted successfully',
     transactionUpdated: 'Transaction updated successfully',
+  },
+};
+
+export const sourceMessages = {
+  errors: {
+    sourceNotFound: 'Source not found',
+    sourceAlreadyExists: 'Source already exists',
+  },
+  messages: {
+    sourceCreated: 'Source created successfully',
+    sourceDeleted: 'Source deleted successfully',
+    sourceUpdated: 'Source updated successfully',
+  },
+};
+
+export const emailMessages = {
+  errors: {
+    invalidToken: 'Invalid token',
+  },
+  messages: {
+    verificationEmailSent: 'Verification email sent',
+    emailVerified: 'Email verified successfully',
   },
 };

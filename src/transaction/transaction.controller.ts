@@ -20,9 +20,16 @@ import { TransactionService } from './transaction.service';
 import { Request } from 'express';
 import { ObjectIdValidationPipe } from 'src/pipes/objectIdValidationPipe';
 
-@Controller('transaction')
+@Controller('transactions')
 export class TransactionController {
   constructor(private readonly transactionService: TransactionService) {}
+
+  @Post()
+  @UsePipes(new JoiValidationPipe(GetTransactionsValidation))
+  async getTransactions(@Req() req: Request, @Body() body: ITransactionFilter) {
+    return this.transactionService.getTransactions(req, body);
+  }
+
   @Post('add')
   @UsePipes(new JoiValidationPipe(CreateTransactionValidation))
   async createTransaction(
@@ -30,12 +37,6 @@ export class TransactionController {
     @Body() body: CreateTransaction,
   ) {
     return this.transactionService.addTransaction(req, body);
-  }
-
-  @Post('get')
-  @UsePipes(new JoiValidationPipe(GetTransactionsValidation))
-  async getTransactions(@Req() req: Request, @Body() body: ITransactionFilter) {
-    return this.transactionService.getTransactions(req, body);
   }
 
   @Get(':id')
