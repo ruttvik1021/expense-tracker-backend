@@ -2,7 +2,7 @@ import { BadRequestException, Injectable } from '@nestjs/common';
 import { ConfigService } from '@nestjs/config';
 import { JwtService } from '@nestjs/jwt';
 import { InjectModel } from '@nestjs/mongoose';
-import bcrypt from 'bcryptjs';
+import * as bcrypt from 'bcrypt';
 import { Model } from 'mongoose';
 import { ILogin } from 'src/schemas/auth-schema';
 import { USER_MODEL, UserDocument } from 'src/schemas/profile-schema';

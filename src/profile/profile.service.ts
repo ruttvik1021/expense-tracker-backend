@@ -9,7 +9,7 @@ import {
   UserDocument,
 } from 'src/schemas/profile-schema';
 import { userMessages } from 'src/utils/constants';
-import bcrypt from 'bcryptjs';
+import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class ProfileService {
